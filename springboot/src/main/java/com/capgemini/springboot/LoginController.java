@@ -2,6 +2,7 @@ package com.capgemini.springboot;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -23,7 +24,8 @@ public class LoginController {
 
 	@PostMapping("/login")
 	public String processLogin(@RequestParam("username") String username, 
-                               @RequestParam("password") String password) {
+                               @RequestParam("password") String password,
+							   Model model) {
 		
 		System.out.println("username: " + username);
 		System.out.println("password: " + password);
@@ -33,6 +35,7 @@ public class LoginController {
 		}
 		else {
 			System.out.println("Invalid username or password");
+			//model.addAttribute("loginFailed", true);
 			return "redirect:/login?error";
 		}
 	}
