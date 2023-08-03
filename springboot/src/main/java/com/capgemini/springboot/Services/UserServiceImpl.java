@@ -1,7 +1,10 @@
-package com.capgemini.springboot;
+package com.capgemini.springboot.Services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.capgemini.springboot.entities.User;
+import com.capgemini.springboot.repositories.UserRepository;
 
 @Service
 public class UserServiceImpl implements UserService {

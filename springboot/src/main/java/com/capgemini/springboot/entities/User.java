@@ -1,4 +1,4 @@
-package com.capgemini.springboot;
+package com.capgemini.springboot.entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

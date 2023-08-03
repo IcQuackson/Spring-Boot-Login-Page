@@ -1,4 +1,6 @@
-package com.capgemini.springboot;
+package com.capgemini.springboot.Services;
+
+import com.capgemini.springboot.entities.User;
 
 public interface UserService {
 	

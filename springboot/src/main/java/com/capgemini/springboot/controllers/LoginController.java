@@ -1,4 +1,4 @@
-package com.capgemini.springboot;
+package com.capgemini.springboot.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -6,6 +6,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import com.capgemini.springboot.Services.UserServiceImpl;
 
 @Controller
 public class LoginController {
@@ -36,7 +38,7 @@ public class LoginController {
 		else {
 			System.out.println("Invalid username or password");
 			//model.addAttribute("loginFailed", true);
-			return "redirect:/login?error";
+			return "redirect:/index.html?error";
 		}
 	}
 }
