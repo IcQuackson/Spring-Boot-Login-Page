@@ -31,13 +31,13 @@ public class LoginController {
 		
 		System.out.println("username: " + username);
 		System.out.println("password: " + password);
-		if (userService.isValidUser(username, password)) {
+		
+		if (userService.validateAuthentication(username, password)) {
 			System.out.println("Valid username and password");
 			return "redirect:/login_success.html";
 		}
 		else {
 			System.out.println("Invalid username or password");
-			//model.addAttribute("loginFailed", true);
 			return "redirect:/index.html?error";
 		}
 	}

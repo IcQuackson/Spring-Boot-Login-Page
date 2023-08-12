@@ -7,33 +7,31 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.capgemini.springboot.Services.UserServiceImpl;
 import com.capgemini.springboot.entities.User;
-import com.capgemini.springboot.repositories.UserRepository;
 
 @Controller
 public class SignupController {
 
-    @Autowired
-    private UserRepository userRepository;
+    private final UserServiceImpl userService;
+
+	@Autowired
+    public SignupController(UserServiceImpl userService) {
+        this.userService = userService;
+    }
 
     @GetMapping("/signup")
     public String showSignupForm(Model model) {
-        model.addAttribute("user", new User());
         return "signup_page.html";
     }
 
     @PostMapping("/signup")
     public String processSignupForm(@ModelAttribute User user) {
-		if (userRepository.findByUsername(user.getUsername()) != null) {
-			return "redirect:signup_page.html?error";
-		}
-		if (userRepository.findByEmail(user.getEmail()) != null) {
+		if (userService.userExists(user.getUsername(), user.getEmail())) {
 			return "redirect:signup_page.html?error";
 		}
         // Save the user to the database
-        userRepository.save(user);
-
-        // Redirect to the login page or any other page after successful signup
+        userService.saveUser(user);
         return "redirect:signup_success.html";
     }
 }

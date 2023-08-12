@@ -6,7 +6,15 @@ public interface UserService {
 	
 	void saveUser(User user);
 
-	User findUserByUsername(String username);
+	User getUserByUsername(String username);
+
+	User getUserByEmail(String email);
+
+	boolean userExists(String username, String email);
 	
-	boolean isValidUser(String username, String password);
+	boolean userExists(String username);
+	
+	boolean validateAuthentication(String username, String password);
+
+	public boolean updateUserPassword(String username, String newPassword);
 }
