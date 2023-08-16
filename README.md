@@ -1,4 +1,4 @@
-# Spring-Boot-Project-Cap
+# Spring-Boot-Project
 
 # 🌟 Spring Boot Login Page Project
 
