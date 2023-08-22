@@ -7,8 +7,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-import jakarta.persistence.SequenceGenerator;
-
 @Entity
 @Table(name="users")
 public class User {
@@ -19,13 +17,10 @@ public class User {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long id;
 
-	@Column(name="USERNAME", length=20, nullable=false, unique=true)
 	private String username;
 
-	@Column(name="PASSWORD", length=72, nullable=false)
 	private String password;
 
-	@Column(name="EMAIL", length=50, nullable=false, unique=true)
 	private String email;
 
 	public long getId() {
